@@ -1,8 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import styles from "./ColorBlock.scss";
 
-const ColorBlock = ({ index }) => {
-
+const ColorBlock = ({ index, onColorChange }) => {
     const inputRef = useRef(null);
     const [color, setColor] = useState("#FFFFFF");
 
@@ -11,15 +10,22 @@ const ColorBlock = ({ index }) => {
     };
 
     const handleColorChange = (e) => {
-        setColor(e.target.value);
+        const newColor = e.target.value;
+        setColor(newColor);
+        if (onColorChange) onColorChange(index, newColor);
     };
+
+    // Po potrebi lahko tudi inicialno posreduješ začetno barvo staršu:
+    useEffect(() => {
+        if (onColorChange) onColorChange(index, color);
+    }, []);
 
     return (
         <>
-            <div className={`color--mixer__color${index} color` }style={{
-                backgroundColor: color,
-            }}
-                 onClick={handleDivClick}
+            <div
+                className={`color--mixer__color${index} color`}
+                style={{ backgroundColor: color }}
+                onClick={handleDivClick}
             ></div>
 
             <input
@@ -29,9 +35,8 @@ const ColorBlock = ({ index }) => {
                 onChange={handleColorChange}
                 style={{ display: "none" }}
             />
-
         </>
-    )
-}
+    );
+};
 
 export default ColorBlock;
