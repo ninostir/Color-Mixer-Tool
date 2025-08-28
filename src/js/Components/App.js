@@ -13,8 +13,6 @@ const App = () => {
 
             <ColorMixer></ColorMixer>
 
-            <MixedColorDisplay></MixedColorDisplay>
-
             <Footer></Footer>
         </>
     )

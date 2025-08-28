@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import styles from "./ColorBlock.scss";
+import styles from "./_ColorBlock.scss";
 
 const ColorBlock = ({ index, onColorChange }) => {
     const inputRef = useRef(null);
@@ -15,7 +15,6 @@ const ColorBlock = ({ index, onColorChange }) => {
         if (onColorChange) onColorChange(index, newColor);
     };
 
-    // Po potrebi lahko tudi inicialno posreduješ začetno barvo staršu:
     useEffect(() => {
         if (onColorChange) onColorChange(index, color);
     }, []);

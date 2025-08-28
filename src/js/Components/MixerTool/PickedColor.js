@@ -1,6 +1,6 @@
 import React from "react";
 import ColorBlock from "./ColorBlock"
-import styles from "./PickedColor.scss";
+import styles from "./_PickedColor.scss";
 
 const PickedColor = ({ onColorChange }) => {
     return (

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./ColorMixer.scss";
+import styles from "./_ColorMixer.scss";
 import PickedColor from "./PickedColor";
 import MixedColorDisplay from "./MixedColorDisplay";
 
@@ -45,11 +45,15 @@ const handleMixColors = () => {
 
 return (
     <section className="color--mixer">
-        <PickedColor onColorChange={handleColorChange} />
+        <div className="mixer--picked__colors">
+            <PickedColor onColorChange={handleColorChange} />
+        </div>
 
-        <button onClick={handleMixColors}>Mix Colors</button>
+        <div className="mixer--mixed__colors">
+            <button onClick={handleMixColors}>Mix Colors</button>
+            <MixedColorDisplay mixedColor={mixedColor} />
+        </div>
 
-        <MixedColorDisplay mixedColor={mixedColor} />
     </section>
 );
 };
