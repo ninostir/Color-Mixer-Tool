@@ -1,10 +1,18 @@
+@use "../../../styles/general/variables";
+
 .header {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
+  background-color: variables.$primaryColor;
 
-  img {
+  .header--title {
+    font-size: 32px;
+    font-family: variables.$primaryFont;
+  }
+
+  .header--logo {
     width: 40px;
     height: 40px;
   }

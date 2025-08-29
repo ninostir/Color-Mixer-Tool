@@ -1,3 +1,6 @@
+@use "../../../styles/general/variables";
+
 #mixed__color {
   width: 95%;
+  font-family: variables.$primaryFont;
 }
